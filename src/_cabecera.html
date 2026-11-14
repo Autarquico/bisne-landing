@@ -1,0 +1,16 @@
+<a class="skip" href="#contenido">{{saltar}}</a>
+<header class="top">
+  <div class="top__brand">
+    <a class="brand" href="{{BASE}}" aria-label="{{inicio_aria}}">{{> logo_principal}}</a>
+    <p class="top__descriptor">{{descriptor}}</p>
+  </div>
+  <div class="top__tools">
+    <nav class="lang" aria-label="{{idioma_etiqueta}}">
+      <details>
+        <summary><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><span class="sr-only">{{idioma_etiqueta}}: </span><span class="lang__code">{{LANG}}</span></summary>
+        <ul class="lang__list">{{SELECTOR_IDIOMA}}</ul>
+      </details>
+    </nav>
+    <button class="theme-btn" type="button" aria-pressed="false" aria-label="{{tema_etiqueta}}"><svg class="ico solo-claro" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="ico solo-oscuro" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></button>
+  </div>
+</header>

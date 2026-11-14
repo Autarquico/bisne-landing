@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<title>{{al_title}}</title>
+<meta name="description" content="{{al_desc}}">
+{{ALTERNATIVAS}}
+{{> head}}
+</head>
+<body>
+{{> cabecera}}
+<main id="contenido" tabindex="-1">
+  <div class="doc">
+    <h1>{{al_h1}}</h1>
+
+    <h2>{{al_datos_h}}</h2>
+    <p>{{al_datos_p}}</p>
+    <ul>{{al_datos_li}}</ul>
+
+    <h2>{{al_objeto_h}}</h2>
+    <p>{{al_objeto_p}}</p>
+
+    <h2>{{al_uso_h}}</h2>
+    <p>{{al_uso_p}}</p>
+
+    <h2>{{al_propiedad_h}}</h2>
+    <p>{{al_propiedad_p}}</p>
+
+    <h2>{{al_responsabilidad_h}}</h2>
+    <p>{{al_responsabilidad_p}}</p>
+
+    <h2>{{al_ley_h}}</h2>
+    <p>{{al_ley_p}}</p>
+    <p><a href="{{BASE}}">{{priv_volver}}</a></p>
+  </div>
+</main>
+{{> pie}}
+</body>
+</html>

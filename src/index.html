@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="{{URL}}">
+<meta property="og:locale" content="{{LANG}}">
+{{ALTERNATIVAS}}
+{{> head}}
+</head>
+<body>
+{{> cabecera}}
+<main id="contenido" tabindex="-1">
+  <div id="mensaje" class="vista">
+    <section class="mensaje" aria-labelledby="t-mensaje">
+      <h1 id="t-mensaje" class="mensaje__texto">{{MENSAJE}}</h1>
+      <p class="mensaje__baja">{{baja}}</p>
+      <p class="mensaje__cta">
+        <span class="solo-js"><button class="btn btn--grande" type="button" id="hablanos" data-abrir-chat data-textos="{{BASE}}conversacion.json" data-api="{{API}}" data-sitekey="{{SITEKEY}}" data-lang="{{LANG}}" data-privacidad="{{BASE}}privacidad.html" data-seguir="">{{cta}}</button> <span class="mensaje__pregunta">{{cta_pregunta}}</span></span>
+        <span class="sin-js">{{sin_js}}</span>
+      </p>
+      <p class="mensaje__espera">{{espera}}</p>
+    </section>
+
+    <section class="bloque bloque--producto" aria-labelledby="t-producto">
+      <div class="bloque__cabeza">
+        <h2 id="t-producto" class="bloque__titulo">{{producto_titulo}}</h2>
+        <p>{{producto_p}}</p>
+      </div>
+      <ul class="demos">
+        <li class="demo">
+          <div class="demo__texto"><h3>{{v_clientes_h}}</h3><p>{{v_clientes_p}}</p></div>
+          <video class="demo__video" data-src="/assets/videos/clientes.mp4" data-poster="/assets/videos/clientes.webp" width="1280" height="800" muted loop playsinline preload="none" aria-label="{{v_clientes_alt}}"></video>
+        </li>
+        <li class="demo">
+          <div class="demo__texto"><h3>{{v_personal_h}}</h3><p>{{v_personal_p}}</p></div>
+          <video class="demo__video" data-src="/assets/videos/personal.mp4" data-poster="/assets/videos/personal.webp" width="1280" height="800" muted loop playsinline preload="none" aria-label="{{v_personal_alt}}"></video>
+        </li>
+        <li class="demo">
+          <div class="demo__texto"><h3>{{v_impuestos_h}}</h3><p>{{v_impuestos_p}}</p></div>
+          <video class="demo__video" data-src="/assets/videos/impuestos.mp4" data-poster="/assets/videos/impuestos.webp" width="1280" height="800" muted loop playsinline preload="none" aria-label="{{v_impuestos_alt}}"></video>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bloque" aria-labelledby="t-modulos">
+      <div class="bloque__cabeza">
+        <h2 id="t-modulos" class="bloque__titulo">{{modulos_titulo}}</h2>
+        <p>{{modulos_p}}</p>
+      </div>
+      <ul class="modulos">
+        <li><h3>{{m_clientes_h}}</h3><p>{{m_clientes_p}}</p></li>
+        <li><h3>{{m_personal_h}}</h3><p>{{m_personal_p}}</p></li>
+        <li><h3>{{m_web_h}}</h3><p>{{m_web_p}}</p></li>
+        <li><h3>{{m_facturacion_h}}</h3><p>{{m_facturacion_p}}</p></li>
+        <li><h3>{{m_impuestos_h}}</h3><p>{{m_impuestos_p}}</p></li>
+        <li><h3>{{m_subvenciones_h}}</h3><p>{{m_subvenciones_p}}</p></li>
+      </ul>
+      <p class="modulos__conecta">{{conecta}}</p>
+    </section>
+
+    <section class="bloque bloque--asesorias" aria-labelledby="t-asesorias">
+      <div class="bloque__cabeza">
+        <h2 id="t-asesorias" class="bloque__titulo">{{asesorias_titulo}}</h2>
+        <p>{{asesorias_p}}</p>
+      </div>
+    </section>
+
+    <section class="bloque" aria-labelledby="t-preguntas">
+      <div class="bloque__cabeza">
+        <h2 id="t-preguntas" class="bloque__titulo">{{preguntas_titulo}}</h2>
+      </div>
+      <dl class="preguntas">
+        <div><dt>{{q_todo}}</dt><dd>{{a_todo}}</dd></div>
+        <div><dt>{{q_asesoria}}</dt><dd>{{a_asesoria}}</dd></div>
+        <div><dt>{{q_espana}}</dt><dd>{{a_espana}}</dd></div>
+        <div><dt>{{q_precio}}</dt><dd>{{a_precio}}</dd></div>
+        <div><dt>{{q_cuando}}</dt><dd>{{a_cuando}}</dd></div>
+      </dl>
+    </section>
+
+    <section class="bloque cierre" aria-labelledby="t-cierre">
+      <h2 id="t-cierre" class="cierre__titulo">{{cierre_titulo}}</h2>
+      <p>{{cierre_p}}</p>
+      <p class="mensaje__cta solo-js"><button class="btn btn--grande" type="button" data-abrir-chat>{{cta}}</button></p>
+    </section>
+  </div>
+</main>
+{{> pie}}
+</body>
+</html>

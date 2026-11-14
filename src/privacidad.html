@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<title>{{priv_title}}</title>
+<meta name="description" content="{{priv_desc}}">
+{{ALTERNATIVAS}}
+{{> head}}
+</head>
+<body>
+{{> cabecera}}
+<main id="contenido" tabindex="-1">
+  <div class="doc">
+    <h1>{{priv_h1}}</h1>
+    <p class="muted">{{priv_version}} {{VERSION_AVISO}}</p>
+
+    <h2>{{priv_resp_h}}</h2>
+    <p>{{priv_resp_p}}</p>
+
+    <h2>{{priv_datos_h}}</h2>
+    <ul>{{priv_datos_li}}</ul>
+    <p>{{priv_cookies}}</p>
+
+    <h2>{{priv_ia_h}}</h2>
+    <p>{{priv_ia_p}}</p>
+
+    <h2>{{priv_para_h}}</h2>
+    <p>{{priv_para_p}}</p>
+
+    <h2>{{priv_tiempo_h}}</h2>
+    <p>{{priv_tiempo_p}}</p>
+
+    <h2>{{priv_quien_h}}</h2>
+    <ul>{{priv_quien_li}}</ul>
+
+    <h2>{{priv_derechos_h}}</h2>
+    <p>{{priv_derechos_p}}</p>
+    <p><a href="{{BASE}}">{{priv_volver}}</a></p>
+  </div>
+</main>
+{{> pie}}
+</body>
+</html>

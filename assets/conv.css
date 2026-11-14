@@ -1,0 +1,71 @@
+/* Conversación, aviso, tarjeta de contacto y formulario corto. Se carga al pulsar «Háblanos». */
+@font-face { font-family: 'Manrope Completa'; font-style: normal; font-weight: 200 800; font-display: swap; src: url(/assets/fuentes/manrope-latin-variable.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fuentes/jetbrains-mono-latin-variable.woff2) format('woff2'); }
+
+.estado { display: flex; flex-direction: column; gap: var(--space-4); max-width: 44rem; margin: 0 auto; padding: var(--space-5) var(--space-5) var(--space-8); font-family: 'Manrope Completa', var(--font-body); }
+/* la conversación ocupa una zona fija: el hilo hace scroll dentro y el compositor no se mueve */
+.estado--conv { height: 60dvh; min-height: 24rem; margin-top: var(--space-4); padding-bottom: 0; overflow: hidden; border: var(--rule-hairline); border-radius: var(--radius-surface); }
+.estado.entra { animation: entra 200ms cubic-bezier(0.2, 0, 0, 1); }
+@keyframes entra { from { opacity: 0; } to { opacity: 1; } }
+.estado h1 { margin: 0; font: 700 var(--text-h2-size)/var(--text-h2-line) var(--font-body); font-family: inherit; color: var(--color-ink); text-wrap: balance; }
+.estado h1:focus, .estado [tabindex='-1']:focus { outline: none; }
+.estado h2 { margin: 0; font: 700 var(--text-h3-size)/var(--text-h3-line) var(--font-body); font-family: inherit; color: var(--color-ink); }
+.estado p, .estado li { margin: 0; max-width: 62ch; }
+.estado ul { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--space-2); }
+.estado a { color: var(--color-ink); }
+
+.volver { align-self: flex-start; }
+.btn--sec { background: transparent; color: var(--color-ink); border-color: var(--color-ink); }
+.btn--sec:hover { background: var(--color-surface); border-color: var(--color-ink); }
+.btn--sec:active { background: var(--color-rule-soft); border-color: var(--color-ink); }
+.acciones { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+/* conversación */
+.hilo { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: var(--space-5); }
+.hilo:focus-visible { outline-offset: calc(-1 * var(--size-focus-ring)); }
+.log { display: flex; flex-direction: column; gap: var(--space-5); }
+.turno { display: grid; gap: var(--space-1); max-width: 62ch; }
+.turno__quien { font: 500 var(--text-eyebrow-size)/var(--text-eyebrow-line) var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); }
+.turno__texto { white-space: pre-wrap; overflow-wrap: anywhere; }
+.turno--tu { padding-left: var(--space-4); border-left: var(--size-marker-strong) solid var(--color-ink); }
+.turno--bot[aria-busy='true'] .turno__texto:empty::before { content: attr(data-espera); color: var(--color-muted); }
+.aviso-turno { border: var(--rule-hairline); padding: var(--space-4); display: grid; gap: var(--space-3); max-width: 62ch; }
+.aviso-turno--error { border-left: var(--size-marker-strong) solid var(--color-danger); }
+.compositor { flex: none; padding: var(--space-4) 0 var(--space-5); background: var(--color-paper); border-top: var(--rule-hairline); display: grid; gap: var(--space-2); }
+.con-tarjeta .compositor { display: none; }
+.compositor__fila { display: flex; gap: var(--space-3); align-items: flex-end; }
+.compositor textarea { flex: 1; }
+
+/* formularios */
+.campos { display: grid; gap: var(--space-4); }
+.campo { display: grid; gap: var(--space-2); }
+.campo label, .campo .etiqueta { font-weight: 700; color: var(--color-ink); }
+.campo input[type='email'], .campo textarea {
+  width: 100%; min-height: var(--size-touch); padding: var(--space-3); font: inherit; color: var(--color-ink);
+  background: var(--color-paper); border: 1px solid var(--color-muted); border-radius: var(--radius-control);
+}
+.campo textarea { resize: vertical; field-sizing: content; min-height: 5.5rem; max-height: 14rem; }
+.compositor textarea { field-sizing: fixed; resize: none; overflow-y: auto; height: calc(3lh + 2 * var(--space-3) + 2px); min-height: 0; max-height: none; }
+.campo [aria-invalid='true'] { border-color: var(--color-danger); border-width: 2px; }
+.ayuda { color: var(--color-muted); font-size: var(--text-small-size); }
+.error { border-left: var(--size-marker-strong) solid var(--color-danger); padding-left: var(--space-3); color: var(--color-ink); font-size: var(--text-small-size); }
+.check { display: flex; gap: var(--space-3); align-items: flex-start; min-height: var(--size-touch); }
+.check input { flex: none; width: 1.5rem; height: 1.5rem; margin: 0.25rem 0 0; accent-color: var(--color-action); }
+.check label { padding: var(--space-1) 0; font-weight: 400; }
+.trampa { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.turnstile { min-height: 0; }
+
+/* tarjeta de contacto: superficie 0, hairline, sin sombra */
+.tarjeta { border: var(--rule-hairline); border-radius: var(--radius-surface); background: var(--color-surface); padding: var(--space-5); display: grid; gap: var(--space-4); max-width: 62ch; }
+.tarjeta details { border: var(--rule-hairline); background: var(--color-paper); padding: 0 var(--space-4); }
+.tarjeta summary { min-height: var(--size-touch); display: flex; align-items: center; font-weight: 700; cursor: pointer; }
+.tarjeta dl { margin: 0 0 var(--space-4); display: grid; gap: var(--space-3); }
+.tarjeta dt { font: 500 var(--text-eyebrow-size)/var(--text-eyebrow-line) var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-muted); }
+.tarjeta dd { margin: 0; overflow-wrap: anywhere; }
+
+@media (max-width: 40rem) {
+  .estado { padding-left: var(--space-4); padding-right: var(--space-4); }
+  .estado--conv { height: calc(100dvh - 7rem); min-height: 0; margin-top: 0; padding-top: var(--space-3); border: 0; }
+  .compositor textarea { flex: none; }
+  .compositor__fila { flex-direction: column; align-items: stretch; }
+}
