@@ -1,0 +1,61 @@
+# .claude/design-briefs/landing.yml — bisne.es (capa 3, página).
+# Manda sobre la capa 2 de la marca (`.claude/design-briefs/base.yml` del repo Autarquico/bisne) y
+# ~/.claude/design-system.yml en lo que declara.
+# Spec: docs/specs/landing.md de Autarquico/bisne. Referencia de actitud: theagilemonkeys.com (fricción: no hay landing).
+
+page: landing
+url: "https://bisne.es"
+
+aesthetic:
+  family: statement            # una idea, a pantalla completa
+  note: >
+    Nada de secciones, módulos, maquetas ni pruebas sociales. El mensaje ocupa la pantalla;
+    «Háblanos» convierte la página entera en la conversación. Lo que no es el mensaje o la
+    conversación no existe.
+
+layout:
+  mode: full-viewport          # min-height: 100svh (nunca altura fija); sin tarjeta
+  header: "logo principal en fichero (≥120 px de ancho, versión por tema) seguido del descriptor a la izquierda · idiomas e interruptor de tema a la derecha"
+  footer: "hola@bisne.es · privacidad"
+  states:                      # cada uno con su texto escrito (P23) en los 5 idiomas
+    - mensaje                  # portada
+    - aviso_datos              # dice «asistente de IA» y que lo procesan proveedores de IA, algunos fuera del EEE (los nombres, en la privacidad) antes de aceptar; «Aceptar y empezar» / «Prefiero escribiros»
+    - verificando              # Turnstile (tema e idioma de la página)
+    - conversacion             # ocupa la pantalla; el mensaje desaparece
+    - escribiendo              # turno en curso
+    - tarjeta_contacto         # qué pasará, el resumen que se envía, email con etiqueta encima; «Enviar mis datos a bisne.» / «Ahora no»
+    - contacto_enviado
+    - error_turno              # reintentar o formulario corto
+    - limite                   # turnos o duración agotados → contacto o formulario
+    - no_disponible            # presupuesto o interruptor → formulario corto con motivo
+    - plan_b                   # formulario corto, mismo marco
+    - sin_js                   # mensaje + enlace a hola@bisne.es
+  focus: "al cambiar de estado, el foco va al título o al primer control del estado nuevo; Escape o «Volver» regresa al mensaje sin perder la conversación"
+
+copy:
+  title: "bisne. · Una app para llevar tu negocio"   # <title> y og:title
+  descriptor: "Tu negocio. Más fácil."   # eslogan oficial, en la cabecera tras el logo
+  message: "Una app para llevar tu negocio."
+  cta: "¿Te interesa? Háblanos"
+
+typography:
+  message: { family: Fraunces, weight: 600, size: "clamp(3rem, 9vw, 9rem)", line_height: 1.0, variation: "opsz 144, SOFT 0, WONK 0" }
+  conversation: { family: Manrope, size: "1rem", note: "etiquetas de turno, hora y metadatos en JetBrains Mono (base.yml typography.mono)" }
+  ui: { family: Manrope }
+  loading: "antes de «Háblanos» solo Fraunces (instancia estática 600 recortada a los glifos de los cinco mensajes) y Manrope latino; JetBrains Mono y pesos extra al abrir la conversación"
+
+color:
+  accent_use: "solo las piezas del logo y, como mucho, el punto final del mensaje"
+  action: "tinta (base.yml color.action)"
+
+motion:
+  override: "un único cambio de estado mensaje → conversación, ≤250 ms, desactivado con reduced motion"
+  forbidden: ["animaciones de entrada en carga", "cursor personalizado", "scroll secuestrado"]
+
+performance:
+  budget_kb_before_cta: 60     # transferido, fuentes incluidas; build.py falla si se supera
+  third_party_before_cta: none
+
+accessibility:
+  conversation: "role=log con aria-live=off para el texto que llega; una región role=status aparte anuncia cada respuesta completa (P24)"
+  rules: [P12 adaptada (tarjeta de contacto), P23, P24, P25]
