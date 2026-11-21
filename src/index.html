@@ -52,23 +52,21 @@
         <h2 id="t-modulos" class="bloque__titulo">{{modulos_titulo}}</h2>
         <p>{{modulos_p}}</p>
       </div>
-      <ul class="modulos">
-        <li><h3>{{m_clientes_h}}</h3><p>{{m_clientes_p}}</p></li>
-        <li><h3>{{m_personal_h}}</h3><p>{{m_personal_p}}</p></li>
-        <li><h3>{{m_web_h}}</h3><p>{{m_web_p}}</p></li>
-        <li><h3>{{m_facturacion_h}}</h3><p>{{m_facturacion_p}}</p></li>
-        <li><h3>{{m_impuestos_h}}</h3><p>{{m_impuestos_p}}</p></li>
-        <li><h3>{{m_subvenciones_h}}</h3><p>{{m_subvenciones_p}}</p></li>
+      <div class="carrusel" tabindex="0" role="region" aria-labelledby="t-modulos">
+      <ul class="carrusel__pista">
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-clientes" aria-haspopup="dialog">{{m_clientes_h}}</button></h3><p>{{m_clientes_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1ZM14 8H8m8 4H8m5 4H8"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-facturacion" aria-haspopup="dialog">{{m_facturacion_h}}</button></h3><p>{{m_facturacion_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 22h18M6 18v-7m4 7v-7m4 7v-7m4 7v-7M12 2l8 5H4Z"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-impuestos" aria-haspopup="dialog">{{m_impuestos_h}}</button></h3><p>{{m_impuestos_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10h2m-2 4h2M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-personal" aria-haspopup="dialog">{{m_personal_h}}</button></h3><p>{{m_personal_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2zm4 0h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-asesor" aria-haspopup="dialog">{{m_asesor_h}}</button></h3><p>{{m_asesor_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16m4 4 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9M2 15l6 6M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-subvenciones" aria-haspopup="dialog">{{m_subvenciones_h}}</button></h3><p>{{m_subvenciones_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-web" aria-haspopup="dialog">{{m_web_h}}</button></h3><p>{{m_web_p}}</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4ZM2 22l3-3m2.5-5.5L10 11m.5 5.5L13 14m5-11-4 4h6l-4 4"/></svg><h3><button class="carrusel__abrir" type="button" data-ficha="ficha-conecta" aria-haspopup="dialog">{{m_conecta_h}}</button></h3><p>{{m_conecta_p}}</p></li>
       </ul>
-      <p class="modulos__conecta">{{conecta}}</p>
-    </section>
-
-    <section class="bloque bloque--asesorias" aria-labelledby="t-asesorias">
-      <div class="bloque__cabeza">
-        <h2 id="t-asesorias" class="bloque__titulo">{{asesorias_titulo}}</h2>
-        <p>{{asesorias_p}}</p>
       </div>
     </section>
+
+
 
     <section class="bloque" aria-labelledby="t-preguntas">
       <div class="bloque__cabeza">
@@ -89,6 +87,94 @@
       <p class="mensaje__cta solo-js"><button class="btn btn--grande" type="button" data-abrir-chat>{{cta}}</button></p>
     </section>
   </div>
+  <dialog class="modal" id="ficha-clientes" aria-labelledby="ficha-clientes-t">
+    <div class="modal__cabeza"><h2 id="ficha-clientes-t" class="modal__titulo">{{d_clientes_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_clientes_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_clientes_1_h}}</h3><p>{{d_clientes_1_p}}</p></li>
+      <li><h3>{{d_clientes_2_h}}</h3><p>{{d_clientes_2_p}}</p></li>
+      <li><h3>{{d_clientes_3_h}}</h3><p>{{d_clientes_3_p}}</p></li>
+      <li><h3>{{d_clientes_4_h}}</h3><p>{{d_clientes_4_p}}</p></li>
+      <li><h3>{{d_clientes_5_h}}</h3><p>{{d_clientes_5_p}}</p></li>
+      <li><h3>{{d_clientes_6_h}}</h3><p>{{d_clientes_6_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-facturacion" aria-labelledby="ficha-facturacion-t">
+    <div class="modal__cabeza"><h2 id="ficha-facturacion-t" class="modal__titulo">{{d_facturacion_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_facturacion_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_facturacion_1_h}}</h3><p>{{d_facturacion_1_p}}</p></li>
+      <li><h3>{{d_facturacion_2_h}}</h3><p>{{d_facturacion_2_p}}</p></li>
+      <li><h3>{{d_facturacion_3_h}}</h3><p>{{d_facturacion_3_p}}</p></li>
+      <li><h3>{{d_facturacion_4_h}}</h3><p>{{d_facturacion_4_p}}</p></li>
+      <li><h3>{{d_facturacion_5_h}}</h3><p>{{d_facturacion_5_p}}</p></li>
+      <li><h3>{{d_facturacion_6_h}}</h3><p>{{d_facturacion_6_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-impuestos" aria-labelledby="ficha-impuestos-t">
+    <div class="modal__cabeza"><h2 id="ficha-impuestos-t" class="modal__titulo">{{d_impuestos_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_impuestos_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_impuestos_1_h}}</h3><p>{{d_impuestos_1_p}}</p></li>
+      <li><h3>{{d_impuestos_2_h}}</h3><p>{{d_impuestos_2_p}}</p></li>
+      <li><h3>{{d_impuestos_3_h}}</h3><p>{{d_impuestos_3_p}}</p></li>
+      <li><h3>{{d_impuestos_4_h}}</h3><p>{{d_impuestos_4_p}}</p></li>
+      <li><h3>{{d_impuestos_5_h}}</h3><p>{{d_impuestos_5_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-personal" aria-labelledby="ficha-personal-t">
+    <div class="modal__cabeza"><h2 id="ficha-personal-t" class="modal__titulo">{{d_personal_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_personal_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_personal_1_h}}</h3><p>{{d_personal_1_p}}</p></li>
+      <li><h3>{{d_personal_2_h}}</h3><p>{{d_personal_2_p}}</p></li>
+      <li><h3>{{d_personal_3_h}}</h3><p>{{d_personal_3_p}}</p></li>
+      <li><h3>{{d_personal_4_h}}</h3><p>{{d_personal_4_p}}</p></li>
+      <li><h3>{{d_personal_5_h}}</h3><p>{{d_personal_5_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-asesor" aria-labelledby="ficha-asesor-t">
+    <div class="modal__cabeza"><h2 id="ficha-asesor-t" class="modal__titulo">{{d_asesor_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_asesor_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_asesor_1_h}}</h3><p>{{d_asesor_1_p}}</p></li>
+      <li><h3>{{d_asesor_2_h}}</h3><p>{{d_asesor_2_p}}</p></li>
+      <li><h3>{{d_asesor_3_h}}</h3><p>{{d_asesor_3_p}}</p></li>
+      <li><h3>{{d_asesor_4_h}}</h3><p>{{d_asesor_4_p}}</p></li>
+      <li><h3>{{d_asesor_5_h}}</h3><p>{{d_asesor_5_p}}</p></li>
+      <li><h3>{{d_asesor_6_h}}</h3><p>{{d_asesor_6_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-subvenciones" aria-labelledby="ficha-subvenciones-t">
+    <div class="modal__cabeza"><h2 id="ficha-subvenciones-t" class="modal__titulo">{{d_subvenciones_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_subvenciones_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_subvenciones_1_h}}</h3><p>{{d_subvenciones_1_p}}</p></li>
+      <li><h3>{{d_subvenciones_2_h}}</h3><p>{{d_subvenciones_2_p}}</p></li>
+      <li><h3>{{d_subvenciones_3_h}}</h3><p>{{d_subvenciones_3_p}}</p></li>
+      <li><h3>{{d_subvenciones_4_h}}</h3><p>{{d_subvenciones_4_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-web" aria-labelledby="ficha-web-t">
+    <div class="modal__cabeza"><h2 id="ficha-web-t" class="modal__titulo">{{d_web_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_web_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_web_1_h}}</h3><p>{{d_web_1_p}}</p></li>
+      <li><h3>{{d_web_2_h}}</h3><p>{{d_web_2_p}}</p></li>
+      <li><h3>{{d_web_3_h}}</h3><p>{{d_web_3_p}}</p></li>
+      <li><h3>{{d_web_4_h}}</h3><p>{{d_web_4_p}}</p></li>
+    </ul>
+  </dialog>
+  <dialog class="modal" id="ficha-conecta" aria-labelledby="ficha-conecta-t">
+    <div class="modal__cabeza"><h2 id="ficha-conecta-t" class="modal__titulo">{{d_conecta_titulo}}</h2><button class="modal__cerrar" type="button" aria-label="{{cerrar}}" data-cerrar><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <p class="modal__p">{{d_conecta_p}}</p>
+    <ul class="checklist">
+      <li><h3>{{d_conecta_1_h}}</h3><p>{{d_conecta_1_p}}</p></li>
+      <li><h3>{{d_conecta_2_h}}</h3><p>{{d_conecta_2_p}}</p></li>
+      <li><h3>{{d_conecta_3_h}}</h3><p>{{d_conecta_3_p}}</p></li>
+      <li><h3>{{d_conecta_4_h}}</h3><p>{{d_conecta_4_p}}</p></li>
+    </ul>
+  </dialog>
 </main>
 {{> pie}}
 </body>
