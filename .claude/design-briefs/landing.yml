@@ -45,7 +45,7 @@ typography:
   loading: "antes de «Háblanos» solo Fraunces (instancia estática 600 recortada a los glifos de los cinco mensajes) y Manrope latino; JetBrains Mono y pesos extra al abrir la conversación"
 
 color:
-  accent_use: "solo las piezas del logo y, como mucho, el punto final del mensaje"
+  accent_use: "solo las piezas del logo, el punto final del mensaje y de los títulos, y el icono de la tarjeta de módulo al pasar el ratón"
   action: "tinta (base.yml color.action)"
 
 motion:
@@ -53,7 +53,7 @@ motion:
   forbidden: ["animaciones de entrada en carga", "cursor personalizado", "scroll secuestrado"]
 
 performance:
-  budget_kb_before_cta: 60     # transferido, fuentes incluidas; build.py falla si se supera
+  budget_kb_before_cta: 60     # transferido (texto con gzip), fuentes incluidas; build.py falla si se supera
   third_party_before_cta: none
 
 accessibility:

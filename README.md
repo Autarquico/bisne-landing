@@ -10,7 +10,7 @@ publicados en GitHub Pages. «Háblanos» abre la conversación con el agente, q
   y `src/textos/<idioma>.json` con los textos de cada idioma.
 - `assets/`: estilos, scripts, fuentes, logos y vídeos.
 - `build.py`: genera `_dist/` sin dependencias. Falla si faltan o sobran claves de textos o si la portada
-  pasa del presupuesto de 60 KB.
+  transfiere más de 60 KB (con gzip, como sirve GitHub Pages).
 - `tools/`: `simulador.py` (API simulada para probar la página en local) y `fuentes.py` (recorte de fuentes).
 
 ## En local

@@ -3,7 +3,7 @@
 
 Sin dependencias. Falla si a un idioma le falta o le sobra una clave, si una plantilla
 usa una clave que no existe, si queda una clave sin usar, o si lo que carga la portada
-antes de «Háblanos» pasa de PRESUPUESTO_BYTES.
+antes de «Háblanos» transfiere (con gzip) más de PRESUPUESTO_BYTES.
 
 Entorno:
   BISNE_API                  base de la API pública (por defecto https://app.bisne.es/api/publico)
@@ -117,8 +117,8 @@ def sitemap():
     )
 
 
-def mensaje_html(texto):
-    """El punto final del mensaje lleva el acento (landing.yml: color.accent_use)."""
+def con_punto(texto):
+    """El punto final del mensaje y de los títulos lleva el acento (landing.yml: color.accent_use)."""
     return f'{texto[:-1]}<span class="punto">.</span>' if texto.endswith(".") else texto
 
 
@@ -140,7 +140,9 @@ def render(plantilla, variables, textos, usadas):
             fallar(f"clave inexistente «{clave}»")
         usadas.add(clave)
         valor = textos[clave]
-        return "".join(f"<li>{v}</li>" for v in valor) if isinstance(valor, list) else valor
+        if isinstance(valor, list):
+            return "".join(f"<li>{v}</li>" for v in valor)
+        return con_punto(valor) if clave.endswith("_titulo") else valor
 
     for _ in range(4):
         siguiente = PATRON.sub(sustituir, plantilla)
@@ -198,16 +200,16 @@ def comprobar_presupuesto():
     peor = None
     for codigo, (_, base) in IDIOMAS.items():
         filas = medir_portada(DIST / base.strip("/") / "index.html", f"{base}index.html")
-        # se cuenta el tamaño sin comprimir: no se asume que el servidor comprima
-        total = sum(f[1] for f in filas)
-        if peor is None or total > peor[0]:
-            peor = (total, sum(f[2] for f in filas), codigo, filas)
-    total, total_gz, codigo, filas = peor
+        # se cuenta lo transferido: GitHub Pages sirve el texto con gzip y woff2/png ya van comprimidos
+        transferido = sum(f[2] for f in filas)
+        if peor is None or transferido > peor[0]:
+            peor = (transferido, sum(f[1] for f in filas), codigo, filas)
+    total_gz, total, codigo, filas = peor
     for ruta, crudo, gz in peor[3]:
         print(f"  {crudo:>7} B  (gzip {gz:>6})  {ruta}")
     print(f"portada antes de «Háblanos» (peor idioma: {codigo}): {total} B sin comprimir, {total_gz} B con gzip; presupuesto {PRESUPUESTO_BYTES} B")
-    if total > PRESUPUESTO_BYTES:
-        fallar(f"la portada transfiere {total} B y el presupuesto es {PRESUPUESTO_BYTES} B")
+    if total_gz > PRESUPUESTO_BYTES:
+        fallar(f"la portada transfiere {total_gz} B y el presupuesto es {PRESUPUESTO_BYTES} B")
 
 
 def main():
@@ -244,7 +246,7 @@ def main():
                 "INICIO_JS": inicio_js, "INICIO_HASH": hash_inicio,
                 "API": API, "API_ORIGEN": origen_api, "SITEKEY": SITEKEY,
                 "VERSION_AVISO": versiones[codigo], "EMAIL_LINK": EMAIL_LINK,
-                "MENSAJE": mensaje_html(textos[codigo]["mensaje"]),
+                "MENSAJE": con_punto(textos[codigo]["mensaje"]),
             }
             usadas.add("mensaje")
             fuente = (SRC / plantilla).read_text(encoding="utf-8")
